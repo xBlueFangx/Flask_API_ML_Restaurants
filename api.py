@@ -8,7 +8,7 @@
 
 # Importamos lo 3 métodos que utilizaremos
 from flask import Flask, request, jsonify
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 from sklearn.tree import DecisionTreeClassifier
 import joblib
 
@@ -42,7 +42,7 @@ def predict():
     prediccion = MODEL.predict(features)
     
     # Creamos y enviamos la respuesta al cliente
-    return jsonify(status='Predicción Completada', prediccion=prediccion)
+    return jsonify(status='Prediccion Completada', prediccion=prediccion[0])
 
 
 #http://127.0.0.1:5000/catalogos/localidad
